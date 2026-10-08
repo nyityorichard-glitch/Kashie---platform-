@@ -1,0 +1,9 @@
+{
+  "name": "kashie-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KASHIE — The Time Is Now. Full-stack fine-art ecosystem for emerging artists.",
+  "main": "server.js",
+  "scripts": {"start":"node server.js","admin-hash":"node scripts/create-admin-hash.js"},
+  "engines":{"node":">=18"}
+}
