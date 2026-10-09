@@ -68,4 +68,6 @@ async function api(req,res){const url=new URL(req.url,`http://${req.headers.host
 }
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon'};
 function staticFile(req,res){let u=decodeURIComponent(new URL(req.url,`http://${req.headers.host}`).pathname);if(u==='/'||u==='/index.html')u='/index.html';const f=path.normalize(path.join(PUBLIC,u));if(!f.startsWith(PUBLIC)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){const index=path.join(PUBLIC,'index.html');res.writeHead(200,{'Content-Type':mime['.html']});return res.end(fs.readFileSync(index))}const ext=path.extname(f);res.writeHead(200,{'Content-Type':mime[ext]||'application/octet-stream','Cache-Control':ext===' .html'?'no-cache':'public, max-age=3600'});res.end(fs.readFileSync(f))}
-const server=http.createServer((req,res)=>req.url.startsWith('/api/')?api(req,res):staticFile(req,res));server.listen(PORT,()=>console.log(`KASHIE running on http://localhost:${PORT}`));
+const server=http.createServer((req,res)=>req.url.startsWith('/api/')?api(req,res):staticFile(req,res));server.listen(PORT, '0.0.0.0', () => {
+  console.log(`KASHIE running on port ${PORT}`);
+});
