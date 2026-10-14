@@ -1,11 +1,12 @@
--- =========================================================
+ -- =========================================================
 -- KASHIE DATABASE SCHEMA
--- PostgreSQL
+-- Database: PostgreSQL
 -- =========================================================
 
 BEGIN;
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
 
 -- =========================================================
 -- 1. USER ACCOUNTS
@@ -343,5 +344,10 @@ CREATE TABLE IF NOT EXISTS admin_audit_logs (
 
 CREATE INDEX IF NOT EXISTS idx_admin_logs_created
     ON admin_audit_logs(created_at DESC);
+
+
+-- =========================================================
+-- FINISH
+-- =========================================================
 
 COMMIT;
