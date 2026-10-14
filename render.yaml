@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: kashie-platform
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kashie-postgres
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: PAYMENT_CURRENCY
+        value: NGN
+      - key: PLATFORM_FEE_BPS
+        value: "450"
+databases:
+  - name: kashie-postgres
+    plan: basic-256mb

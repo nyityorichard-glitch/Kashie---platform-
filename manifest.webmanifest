@@ -1,0 +1,11 @@
+{
+  "name": "KASHIE — Art, Artists & Experiences",
+  "short_name": "KASHIE",
+  "description": "Discover artists, artworks, exhibitions and creative opportunities.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#171817",
+  "icons": [{"src":"assets/kashie-metallic.jpg","sizes":"512x512","type":"image/jpeg","purpose":"any maskable"}]
+}

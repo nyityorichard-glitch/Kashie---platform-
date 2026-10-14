@@ -1,0 +1,7 @@
+KASHIE — START HERE
+
+This is the original-design release candidate with an admin command centre, PWA shell, PostgreSQL schema, Node/Express API, and Paystack webhook foundation.
+
+DO NOT upload this ZIP to your current public Netlify site expecting live payments. Netlify static hosting cannot run this Express backend. Use a NEW private GitHub repository and deploy the project as a Node web service with PostgreSQL (the included render.yaml is a starting blueprint). Follow README.txt step by step. Keep the existing public site unchanged until the backend is deployed and tested.
+
+The admin dashboard only says LIVE DATABASE when it is connected to the production API. On static preview, figures/activity are illustrative demo data. Production sign-in is server-verified; use a strong password hash and private environment variables. Start with Paystack test keys. The API does not yet provide public buyer/artist registration, full storefront checkout UI, permanent image storage, or automated bank payouts, so those features must be completed before opening the platform to the public.
